@@ -60,7 +60,7 @@ export default function Formcontent() {
         <FormControl>
           <InputLabel color='secondary' variant='filled' htmlFor="my-input"></InputLabel>
           <Input placeholder="Search Foods.." inputProps={{ 'aria-label': 'description' }} type='text' value={query} onChange={event => setQuery(event.target.value)} />
-          <FormHelperText id="my-helper-text">Input name of foods</FormHelperText>
+          <FormHelperText id="my-helper-text">Input food name</FormHelperText>
           <Button
             type="button"
             // onClick={() => setUrl(`https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=d9f3b6a5a3ed0bc6cc82a168c0f7f0cc`)}
