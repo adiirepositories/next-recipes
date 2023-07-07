@@ -17,8 +17,7 @@ export default function page() {
     display="flex"
     justifyContent="center"
     alignItems="center"
-    sx={{alignItems: 'center', m:'3rem', flexDirection: 'column'
-  }}>
+    sx={{alignItems: 'center', m:'3rem', flexDirection: 'column'}}>
       {/* <Cardscomponent /> */}
       <Formcontent />
     </Box>

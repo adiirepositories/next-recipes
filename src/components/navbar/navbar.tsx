@@ -14,7 +14,7 @@ export default function CenteredTabs() {
   };
 
   return (
-    <Box sx={{ boxShadow: 2, borderRadius: 1, width: '100%', bgcolor: 'background.paper' }}>
+    <Box sx={{  mb:10, boxShadow: 2, borderRadius: 1, width: '100%', bgcolor: 'background.paper' }}>
       <Tabs value={value} onChange={handleChange} centered>
         <Link href="/">
             <Tab label="Home" />

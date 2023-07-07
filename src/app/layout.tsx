@@ -16,6 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel='icon' href='/iconfav.png'/>
+      </head>
       <body className={inter.className}>
         
         <Navbar />
