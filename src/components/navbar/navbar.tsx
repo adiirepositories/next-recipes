@@ -1,4 +1,8 @@
 "use client";
+
+import { useSession } from 'next-auth/react'
+import { signIn, signOut } from 'next-auth/react'
+
 import Link from "next/link";
 
 import * as React from 'react';
@@ -7,6 +11,8 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
 export default function CenteredTabs() {
+  const { data: session } = useSession()
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -23,14 +29,29 @@ export default function CenteredTabs() {
         <Link href="recipe">
             <Tab label="Recipes" />
         </Link>
-
-        <Link href="/">
+        <Link href="/api/auth/signout">
             <Tab label="About" />
         </Link>
 
-        <Link href="/">
-            <Tab label="Home" />
+        <Link href="/signin">
+            <Tab label="SignIN" />
         </Link>
+{/* 
+        {session ? (
+        <>
+          <Link href="/activity">Activity</Link>
+          <Link href="/profile">Profile</Link>
+          <button
+            type="button"
+            onClick={() => {
+              signOut('auth0',{ callbackUrl: '/' })
+            }}
+          >
+            Sign Out
+          </button>
+        </>
+      ) : null} */}
+
 
       </Tabs>
     </Box>

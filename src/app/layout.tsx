@@ -1,6 +1,9 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Navbar from "@/components/navbar/navbar";
+import Imagebackground from "@/components/image/bg.jpg";
+import Image from 'next/image'
+import AuthProvider from './context/authprovider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,11 +22,17 @@ export default function RootLayout({
       <head>
         <link rel='icon' href='/iconfav.png'/>
       </head>
-      <body className={inter.className}>
-        
-        <Navbar />
-        {children}
+
+      <body className={inter.className} >
+        <AuthProvider>
+
+          <Navbar />
+          {children}
+        </AuthProvider>
+
       </body>
+
+     
     </html>
   )
 }
