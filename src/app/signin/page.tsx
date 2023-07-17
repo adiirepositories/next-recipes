@@ -55,7 +55,7 @@ export default function SignIn() {
   
   const handlegithubsubmit = async(e:React.FormEvent) =>{
     e.preventDefault();
-    signIn('google',{callbackUrl: '/recipe'})
+    signIn('github',{callbackUrl: '/recipe'})
   }
 
   return (

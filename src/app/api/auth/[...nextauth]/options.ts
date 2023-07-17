@@ -1,8 +1,11 @@
-import type { NextAuthOptions } from "next-auth";
+import { NextAuthOptions, User, getServerSession } from "next-auth";
+import { useSession } from "next-auth/react";
 import GitHubProvider from 'next-auth/providers/github'
 import GoogleProvider from 'next-auth/providers/google'
+// import { redirect } from "next/navigation";
 
 import CredentialsProvider from "next-auth/providers/credentials"
+// import { useRouter } from "next/router";
 
 export const options: NextAuthOptions= {
     providers:[
@@ -40,13 +43,21 @@ export const options: NextAuthOptions= {
                 
             },
         })
-    ],
-
-    pages: {
+    ]
+    ,callbacks: {
+        async session({ session, user, token }) {
+          return session
+        },
+        async jwt({ token, user, account, profile, isNewUser }) {
+          return token
+        },
+    }
+    ,pages: {
         signIn: '/signin',
-        error: '/api/auth/error',
-      }
-    // pages:{
-    //     signIn: "/signin"
-    // }
+        // error: '/signin',
+        // error: '/api/auth/error',
+      },
+
 }
+
+
